@@ -1,4 +1,4 @@
-module github.com/beldmian/SampleServer
+module github.com/beldmian/AnimeAPI
 
 go 1.13
 
