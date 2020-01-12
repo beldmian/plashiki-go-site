@@ -1,0 +1,42 @@
+{{define "anime"}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>{{.Title}}</title>
+</head>
+<body>
+    <div class="container my-5">
+    <a href="/" class="btn btn-primary my-2">Return to home</a>
+    <div class="card-columns">
+    {{ $Res1 := index .AnimeData.Result .Number}}
+    {{range $Res1.Authors}}
+        {{$Kind := .Kind}}
+        {{$AuthorName := .Name}}
+        {{range .Translations}}
+        {{ if ne .Name "smotret-anime.online"}}
+            <!-- <div class="jumbotron"> 
+                <h1 class="display-4">{{$AuthorName}}</h1>
+                <p class="lead">Host: {{.Name}} <br> Quality: {{.Quality}} <br> Kind: {{$Kind}}</p>
+                <p class="lead">
+                    <a class="btn btn-primary btn-lg" href="{{.URL}}" role="button">Learn more</a>
+                </p>
+            </div> -->
+            <div class="card border-primary mb-3" >
+                <div class="card-body text-primary">
+                    <h5 class="card-title">{{$AuthorName}}</h5>
+                    <p class="card-text">Host: {{.Name}} <br> Quality: {{.Quality}} <br> Kind: {{$Kind}}</p>
+                </div>
+                <div class="card-footer bg-transparent border-primary"><a class="btn btn-primary " href="{{.URL}}" role="button">Learn more</a></div>
+            </div>
+        {{end}}
+        {{end}}
+    {{end}}
+    </div>
+    </div>
+</body>
+</html>
+{{end}}
