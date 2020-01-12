@@ -5,7 +5,7 @@ import (
 	"log"
 
 	"github.com/BurntSushi/toml"
-	"github.com/beldmian/SampleServer/internal/app/server"
+	"github.com/beldmian/AnimeAPI/internal/app/server"
 )
 
 var (
