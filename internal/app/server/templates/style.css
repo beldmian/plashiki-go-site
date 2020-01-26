@@ -1,0 +1,60 @@
+/* Body styles */
+body {
+    font-family: 'Bebas Neue', cursive;
+    background-color: #282c30;
+    font-size: 20px;
+}
+.jap {
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+/* Blocks style */
+.sidebar {
+    background-color: #343a40 !important;
+    color: #fff;
+}
+
+.content {
+    padding: 10px !important;
+    min-height: 300px;
+    background-color: #343a40 !important;
+    color: #fff;
+}
+
+/* Navbar styles */
+.navbar {
+    font-size: 20px;
+}
+
+.navbar-brand {
+    font-size: 30px;
+}
+
+/* Side menu style */
+.menu > ul {
+    list-style-type: none;  
+    padding: 0;
+}
+
+.menu > li {
+    display: block;
+}
+.menu > ul > li > a{
+    text-align: center;
+    display: block;
+    padding: 10px;
+    color: #fff;
+}
+.menu > ul > li > a:hover{
+    text-decoration: none;
+}
+.menu > ul > li:hover {
+    color: #343a40;
+    background-color: #4d545c;
+}
+
+/* Cards Style*/
+.card {
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+}

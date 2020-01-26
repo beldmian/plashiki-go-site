@@ -35,13 +35,25 @@ type RequestBody struct {
 type SiteData struct {
 	Title     string
 	AnimeData RequestBody
+	Anime     Anime
 	Number    string
+	Jap       string
 }
 
 // Anime provides return from search anime on shikimori
 type Anime struct {
-	ID      int    `json:"id,omitempty"`
-	Name    string `json:"name,omitempty"`
-	Russian string `json:"russian,omitempty"`
-	Status  string `json:"status,omitempty"`
+	ID       int      `json:"id,omitempty"`
+	Name     string   `json:"name,omitempty"`
+	Russian  string   `json:"russian,omitempty"`
+	Japanese []string `json:"japanese,omitempty"`
+	Status   string   `json:"status,omitempty"`
+	Score    string   `json:"score,omitempty"`
+	Image    Image    `json:"image,omitempty"`
+	Episodes int      `json:"episodes,omitempty"`
+}
+
+// Image provides image type for shikimori serach result
+type Image struct {
+	Original string `json:"original,omitempty"`
+	Preview  string `json:"preview,omitempty"`
 }
