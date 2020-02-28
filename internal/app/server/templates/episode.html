@@ -77,6 +77,10 @@ body {
     font-size: 15px;
     background-color: #343a40;
 }
+
+.right {
+    float: right;
+}
     </style>
 </head>
 
@@ -106,6 +110,10 @@ body {
 
     <!-- Main body -->
     <div class="container my-4 content">
+
+    <a href="/anime/{{.ID}}/{{.Previous}}" class="btn btn-outline-primary my-1"><</a>
+    <a href="/anime/{{.ID}}/{{.Next}}" class="btn btn-outline-primary right my-1">></a>
+
     <div class="card-columns">
     {{ $Res1 := index .AnimeData.Result .Number}}
     {{range $Res1.Authors}}
