@@ -55,6 +55,9 @@ func (s *Server) configureRouter() {
 	s.router.HandleFunc("/anime/{id}", s.animeIDHandler)
 	s.router.HandleFunc("/anime/{id}/{num}", s.animeEpisodeHandler)
 	s.router.HandleFunc("/popular", s.popularAnimeHandler)
+	s.router.HandleFunc("/ongoings", s.ongoingAnimeHandler)
+	s.router.HandleFunc("/most-rated", s.mostRatedAnimeHandler)
+	s.router.HandleFunc("/movie", s.movieAnimeHandler)
 	s.router.NotFoundHandler = s.router.NewRoute().HandlerFunc(s.handler404).GetHandler()
 }
 
