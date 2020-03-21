@@ -29,7 +29,7 @@ func (s *Server) animeEpisodeHandler(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	id := vars["id"]
 	num, _ := strconv.Atoi(vars["num"])
-	animeData, _ := s.parseAnime(id)
+	animeData, anime := s.parseAnime(id)
 	tmpl := template.Must(template.ParseFiles("./internal/app/server/templates/episode.html"))
 	data := struct {
 		Title     string
@@ -38,6 +38,7 @@ func (s *Server) animeEpisodeHandler(w http.ResponseWriter, r *http.Request) {
 		Previous  int
 		Next      int
 		ID        string
+		Count     int
 	}{
 		Title:     "Anime id " + id,
 		AnimeData: animeData,
@@ -45,6 +46,7 @@ func (s *Server) animeEpisodeHandler(w http.ResponseWriter, r *http.Request) {
 		Next:      num + 1,
 		Previous:  num - 1,
 		ID:        id,
+		Count:     anime.Episodes,
 	}
 	if err := tmpl.ExecuteTemplate(w, "anime", data); err != nil {
 		s.logger.Fatal(err)
