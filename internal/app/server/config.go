@@ -11,7 +11,7 @@ type Config struct {
 // NewConfig ...
 func NewConfig() *Config {
 	return &Config{
-		BindAddr: os.Getenv("PORT"),
+		BindAddr: ":" + os.Getenv("PORT"),
 		LogLevel: "debug",
 	}
 }
