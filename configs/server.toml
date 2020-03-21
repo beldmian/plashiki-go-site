@@ -1,2 +1,2 @@
 bind_addr = ""
-log_level = "debug"
+log_level = "warn"
