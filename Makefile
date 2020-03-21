@@ -1,7 +1,7 @@
 .PHONY=build
 build:
-	go build -v ./cmd/server
+	go build
 .PHONY=run
 run:
-	go run ./cmd/server/main.go
+	go run ./main.go
 default: build
