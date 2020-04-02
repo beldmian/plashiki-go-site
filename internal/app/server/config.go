@@ -1,5 +1,7 @@
 package server
 
+import "os"
+
 // Config ...
 type Config struct {
 	BindAddr string `toml:"bind_addr"`
@@ -9,8 +11,7 @@ type Config struct {
 // NewConfig ...
 func NewConfig() *Config {
 	return &Config{
-		//BindAddr: ":" + os.Getenv("PORT"),
-		BindAddr: ":8080",
+		BindAddr: ":" + os.Getenv("PORT"),
 		LogLevel: "debug",
 	}
 }
