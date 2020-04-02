@@ -186,6 +186,33 @@ func (s *Server) movieAnimeHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+func (s *Server) animeWatchHandler(w http.ResponseWriter, r *http.Request) {
+	v := mux.Vars(r)
+	resp, err := http.Get("https://plashiki.online/api/translation/" + v["trans"])
+	if err != nil {
+		s.logger.Warn(err)
+	}
+	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		s.logger.Fatal(err)
+	}
+
+	results := TranslationResponse{}
+	if err := json.Unmarshal(body, &results); err != nil {
+		s.logger.Warn(err)
+	}
+	tmpl := template.Must(template.ParseFiles("./internal/app/server/templates/watch.html"))
+	data := map[string]string{
+		"Title": results.Result.Author,
+		"URL":   results.Result.URL,
+		"ID":    v["id"],
+		"Num":   v["num"],
+	}
+	if err := tmpl.ExecuteTemplate(w, "watch", data); err != nil {
+		s.logger.Fatal(err)
+	}
+}
+
 func (s *Server) handler404(w http.ResponseWriter, r *http.Request) {
 	tmpl := template.Must(template.ParseFiles("./internal/app/server/templates/404.html"))
 	w.WriteHeader(404)

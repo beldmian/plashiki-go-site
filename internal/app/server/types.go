@@ -9,6 +9,20 @@ type Translation struct {
 	URL     string `json:"url,omitempty"`
 }
 
+// TranslationFromReq ...
+type TranslationFromReq struct {
+	ID     int    `json:"id,omitempty"`
+	Author string `json:"author,omitempty"`
+	URL    string `json:"url,omitempty"`
+}
+
+// TranslationResponse ...
+type TranslationResponse struct {
+	Ok        bool               `json:"ok,omitempty"`
+	Result    TranslationFromReq `json:"result,omitempty"`
+	ServeTime float32            `json:"serve_time,omitempty"`
+}
+
 // Author provides authors for listing
 type Author struct {
 	Kind         string        `json:"kind,omitempty"`

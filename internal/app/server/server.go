@@ -34,7 +34,7 @@ func (s *Server) Start() error {
 	s.logger.Info("starting api server")
 
 	s.configureRouter()
-	s.logger.Info("router started successful")
+	s.logger.Info("router started successful on port: " + s.config.BindAddr)
 
 	return http.ListenAndServe(s.config.BindAddr, s.router)
 }
@@ -58,6 +58,7 @@ func (s *Server) configureRouter() {
 	s.router.HandleFunc("/ongoings", s.ongoingAnimeHandler)
 	s.router.HandleFunc("/most-rated", s.mostRatedAnimeHandler)
 	s.router.HandleFunc("/movie", s.movieAnimeHandler)
+	s.router.HandleFunc("/anime/{id}/{num}/{trans}", s.animeWatchHandler)
 	s.router.NotFoundHandler = s.router.NewRoute().HandlerFunc(s.handler404).GetHandler()
 }
 

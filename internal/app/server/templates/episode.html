@@ -116,6 +116,8 @@ body {
     <a href="/anime/{{.ID}}/{{.Next}}" class="btn btn-outline-primary right my-1">></a>
 
     <div class="card-columns">
+    {{ $Num := .Number}}
+    {{ $ID := .ID}}
     {{ $Res1 := index .AnimeData.Result .Number}}
     {{range $Res1.Authors}}
         {{$Kind := .Kind}}
@@ -134,7 +136,7 @@ body {
                     <h5 class="card-title">{{$AuthorName}}</h5>
                     <p class="card-text">Host: {{.Name}} <br> Quality: {{.Quality}} <br> Kind: {{$Kind}}</p>
                 </div>
-                <div class="card-footer bg-transparent border-primary"><a class="btn btn-primary " href="{{.URL}}" role="button" target="_blank">Watch</a></div>
+                <div class="card-footer bg-transparent border-primary"><a class="btn btn-primary " href="/anime/{{$ID}}/{{$Num}}/{{.ID}}" role="button">Watch</a></div>
             </div>
         {{end}}
         {{end}}
