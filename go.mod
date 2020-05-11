@@ -1,4 +1,4 @@
-module github.com/beldmian/AnimeAPI
+module github.com/beldmian/plashiki-go-site
 
 go 1.13
 
