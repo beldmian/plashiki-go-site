@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"github.com/beldmian/AnimeAPI/internal/app/server"
+	"github.com/beldmian/plashiki-go-site/internal/app/server"
 )
 
 var (
