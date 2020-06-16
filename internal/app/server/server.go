@@ -63,7 +63,7 @@ func (s *Server) configureRouter() {
 }
 
 func (s *Server) parseAnime(id string) (RequestBody, Anime) {
-	resp, err := http.Get("https://plashiki.online/api/anime/v2/" + id)
+	resp, err := http.Get("https://plashiki.su/api/anime/v2/" + id)
 	if err != nil {
 		s.logger.Warn(err)
 	}
