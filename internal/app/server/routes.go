@@ -188,7 +188,7 @@ func (s *Server) movieAnimeHandler(w http.ResponseWriter, r *http.Request) {
 
 func (s *Server) animeWatchHandler(w http.ResponseWriter, r *http.Request) {
 	v := mux.Vars(r)
-	resp, err := http.Get("https://plashiki.online/api/translation/" + v["trans"])
+	resp, err := http.Get("https://plashiki.su/api/translation/" + v["trans"])
 	if err != nil {
 		s.logger.Warn(err)
 	}
